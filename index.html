@@ -3,14 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>(推與敲) 第45篇 悲摯獸 - 互動式古文學習 (AI 旗艦版)</title>
+    <title>(推與敲) 第45篇 悲摯獸 - 互動式古文學習</title>
     <!-- 載入 Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- 載入 Marked.js -->
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <!-- 載入 JSZip 和 FileSaver (用於打包下載) -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
     <!-- 載入 FontAwesome 圖標 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- 載入 Canvas Confetti (特效) -->
@@ -180,7 +177,7 @@
                     <span class="font-bold text-xl tracking-wider">古文互動教室</span>
                 </div>
                 <div class="hidden md:block text-sm opacity-80">
-                    AI 旗艦版
+                    GitHub 版
                 </div>
             </div>
         </div>
@@ -278,7 +275,6 @@
     </div>
 
     <script>
-        const apiKey = ""; // API Key
         
         // ----------------------------------------------------
         // 1. 教材資料結構 (Content Data) - 悲摯獸
@@ -289,9 +285,9 @@
                 author: "劉基",
                 source: "《郁離子》"
             },
-            summary: "這是一則寓言故事，出自劉基的《郁離子》。故事講述一個農夫在匯澤（地名）的田邊休息，看到不遠處的苕花無風自動，原來是一隻老虎在那裡跳躍嬉戲，看起來非常高興。農夫誤以為老虎發現了自己，正因為將要吃到人而高興，於是心生恐懼與殺機，躲起來射殺了老虎。等走近一看，才發現老虎身下枕著一隻死去的獐子（麕）。原來老虎是因為捕獲了獵物而高興玩耍，卻也因為這份高興和玩耍而喪了命。故事諷刺了「樂極生悲」以及人因主觀猜測而造成的誤殺，同時也蘊含了「螳螂捕蟬，黃雀在後」的哲理。",
+            summary: "這是一則寓言故事，出自劉基的《郁離子》。故事講述一個農夫在匯澤（地名）的田邊休息，看到不遠處的蘆葦花（苕）無風自動，原來是一隻老虎在那裡跳躍嬉戲，看起來非常高興。農夫誤以為老虎發現了自己，正因為將要吃到人而高興，於是心生恐懼與殺機，躲起來射殺了老虎。等走近一看，才發現老虎身下枕著一隻死去的獐子（麕）。原來老虎是因為捕獲了獵物而高興玩耍，卻也因為這份高興和玩耍而喪了命。故事諷刺了「樂極生悲」以及人因主觀猜測而造成的誤殺。",
             
-            meaning: "1. **樂極生悲 (Extreme joy begets sorrow)**：老虎因捕獲獵物而得意忘形，疏於防範，最終招致殺身之禍。\n2. **主觀臆測的危險 (Danger of subjective assumption)**：農夫「謂虎見己」，完全是出於恐懼的主觀猜測，並因此採取了行動。雖然結果對農夫有利，但揭示了人往往以自我為中心判斷事物的盲點。\n3. **禍福難料**：老虎以為得福（獲麕），卻不知禍已臨頭；農夫以為遇禍（遇虎），卻意外得福（殺虎得皮）。",
+            meaning: "1. **樂極生悲 (Extreme joy begets sorrow)**：老虎因捕獲獵物而得意忘形，疏於防範，最終招致殺身之禍。\n2. **主觀臆測的危險**：農夫「謂虎見己」，完全是出於恐懼的主觀猜測，並因此採取了行動。雖然結果對農夫有利，但揭示了人往往以自我為中心判斷事物的盲點。\n3. **禍福難料**：老虎以為得福（獲麕），卻不知禍已臨頭；農夫以為遇禍（遇虎），卻意外得福（殺虎得皮）。",
             
             rhetoric: [
                 "**動作描寫:** 「跳踉哮闞」、「枕死麕而斃」，生動刻畫了老虎生前的狂喜與死後的結局。",
@@ -300,7 +296,7 @@
                 "**譬喻 (Metaphor):** 「雷然而踣」，以雷聲形容老虎倒地的巨大聲響。"
             ],
             
-            // 36個詳盡語詞精解 - 全部將嵌入文言文中
+            // 36個詳盡語詞精解
             vocabulary: [
                 { word: "匯澤", zhuyin: "ㄏㄨㄟˋ ㄗㄜˊ", pos: "地名", meaning: "地名，多沼澤之地。" },
                 { word: "場", zhuyin: "ㄔㄤˊ", pos: "名詞", meaning: "平坦的空地，此指田野。" },
@@ -345,49 +341,34 @@
                     original: "匯澤之場，農夫持弓矢，行其稼穡之側，有苕頃焉，農夫息其傍。",
                     translation: "在匯澤這個地方的田野上，有個農夫拿著弓箭，走在他的莊稼旁邊。那裡有一大片蘆葦花（苕），農夫就在旁邊休息。",
                     audioText: "匯澤之場，農夫持弓矢，行其稼穡之側，有苕頃焉，農夫息其傍。",
-                    notes: {},
-                    // 圖片提示：彩色豐富、人像逼真、東方臉孔
-                    imagePrompt: "Hyper-realistic, colorful, detailed cinematic shot. Ancient Chinese countryside. An exhausted farmer with East Asian facial features holding a rustic bow and arrow, resting beside a vast field of crops and tall reeds. Sunlight filtering through clouds. 8k resolution. NO text.",
-                    imageData: null
+                    imagePath: "images/reading_segment_1.jpg"
                 },
                 {
                     original: "未久，苕花紛然，不吹而飛，若有物娭。視之，虎也。",
                     translation: "沒過多久，蘆葦花紛紛亂飛，明明沒有風吹卻自己飛了起來，好像有什麼東西在裡面玩耍。農夫仔細一看，原來是一隻老虎。",
                     audioText: "未久，苕花紛然，不吹而飛，若有物娭。視之，虎也。",
-                    notes: {},
-                    // 圖片提示：彩色豐富、人像逼真
-                    imagePrompt: "Hyper-realistic, colorful, detailed scene. A field of white reed flowers flying chaotically into the air without wind. Through the gaps in the reeds, the orange stripes of a large tiger are visible. Tension. 8k resolution. NO text.",
-                    imageData: null
+                    imagePath: "images/reading_segment_2.jpg"
                 },
                 {
                     original: "跳踉哮闞，視其狀，若有所獲，負不勝其喜之態也。",
                     translation: "老虎跳躍吼叫，看牠的樣子，好像捕捉到了獵物，表現出高興得無法承受的神態。",
                     audioText: "跳踉哮闞，視其狀，若有所獲，負不勝其喜之態也。",
-                    notes: {},
-                    // 圖片提示：彩色豐富、人像逼真
-                    imagePrompt: "Hyper-realistic, colorful, detailed action shot. A fierce tiger jumping joyfully in the reeds, roaring. Its expression is wild and triumphant. Dust and flowers flying around it. 8k resolution. NO text.",
-                    imageData: null
+                    imagePath: "images/reading_segment_3.jpg"
                 },
                 {
                     original: "農夫謂虎見己，將遇食而喜者。乃挺矢匿形，伺其重娭，發，貫其腋，雷然而踣。",
                     translation: "農夫以為老虎看見了自己，是因為將要吃到人而高興。於是他便拉開弓箭隱藏身形，等到老虎玩得正起勁（疏於防範）時，射出一箭，射穿了老虎的腋下，老虎像打雷一樣轟然倒地。",
                     audioText: "農夫謂虎見己，將遇食而喜者。乃挺矢匿形，伺其重娭，發，貫其腋，雷然而踣。",
-                    notes: {},
-                    // 圖片提示：彩色豐富、人像逼真、東方臉孔
-                    imagePrompt: "Hyper-realistic, colorful, detailed close-up. The farmer with East Asian facial features hiding in the tall grass, drawing his bow with intense focus. In the background (blurred), the tiger is mid-jump. The moment before the arrow release. 8k resolution. NO text.",
-                    imageData: null
+                    imagePath: "images/reading_segment_4.jpg"
                 },
                 {
                     original: "及視之，枕死麕而斃矣。意者謂獲其麕，將食而娭，將娭而害。",
                     translation: "等農夫走近一看，老虎枕著一隻死掉的獐子死去了。推測起來，老虎是因為捕獲了獐子，準備吃之前高興地玩耍，正因為玩耍（忘形）而遭到了殺身之禍。",
                     audioText: "及視之，枕死麕而斃矣。意者謂獲其麕，將食而娭，將娭而害。",
-                    notes: {},
-                    // 圖片提示：彩色豐富、人像逼真
-                    imagePrompt: "Hyper-realistic, colorful, detailed still life. A dead tiger lying on the ground, its head resting on a dead river deer (small deer-like animal). An arrow pierces the tiger's side. The farmer stands over them looking realized. 8k resolution. NO text.",
-                    imageData: null
+                    imagePath: "images/reading_segment_5.jpg"
                 }
             ],
-            // 隨堂測驗 (高難度 - 20題)
+            // 隨堂測驗
             quiz: [
                 { q: "「有苕頃焉」的「苕」在文中是指？", opts: ["A. 紅薯", "B. 蘆葦花", "C. 樹木", "D. 雜草"], ans: "B", exp: "苕，指蘆葦花或陵霄花，此處指蘆葦花。" },
                 { q: "「不吹而飛」的原因是？", opts: ["A. 風很大", "B. 農夫在吹氣", "C. 老虎在裡面跳躍玩耍", "D. 這是幻覺"], ans: "C", exp: "因「有物娭（老虎玩耍）」帶動氣流與撞擊。" },
@@ -410,9 +391,9 @@
                 { q: "「匯澤之場」的「場」字意思是？", opts: ["A. 戰場", "B. 廣場", "C. 舞台", "D. 田野/場地"], ans: "D", exp: "指平坦的田野。" },
                 { q: "「未久」一詞在文中表示？", opts: ["A. 很久以前", "B. 未來", "C. 沒有很久（時間短暫）", "D. 永久"], ans: "C", exp: "沒過多久。" }
             ]
-        }; // ContentData ends here
+        };
 
-        // 預處理所有關鍵字 (將 contentData.vocabulary 轉為 Map 結構)
+        // 預處理所有關鍵字
         const allKeywords = {};
         contentData.vocabulary.forEach((item) => {
              allKeywords[item.word] = item;
@@ -423,10 +404,7 @@
         // ----------------------------------------------------
         let currentTab = 'overview';
         let chatHistory = [];
-        let isGeneratingImage = false;
-        let currentAudio = null;
         let currentPersona = 'liuji'; 
-        let hasPreloadedStory = false;
         let userAnswers = {}; 
 
         const personas = {
@@ -458,9 +436,7 @@
             start: {
                 id: 'start',
                 text: "你是匯澤的一名農夫，今天照常帶著弓箭去巡視田地。走累了，你坐在蘆葦叢旁休息。突然，前方不遠處的蘆葦花無風自動，紛紛亂飛。你會...",
-                // 圖片提示：彩色豐富、人像逼真、東方臉孔
-                imgPrompt: "Hyper-realistic, colorful, detailed cinematic shot. First-person view of a farmer sitting in a field. In front, tall reeds are shaking violently, white flowers flying in the air. Suspense. 8k resolution. NO text.",
-                imageData: null,
+                imagePath: "images/rpg_start.jpg",
                 choices: [
                     { text: "好奇心起，走近去看看", next: "check" },
                     { text: "感覺不對勁，立刻轉身逃跑", next: "run" }
@@ -469,16 +445,14 @@
             run: {
                 id: 'run',
                 text: "【Alternative Ending: 錯失良機】你嚇得拔腿就跑，一口氣跑回家。雖然保住了性命，但你也錯過了獲得虎皮和獐子的機會，第二天聽說鄰居撿了便宜。",
-                imageData: null,
+                imagePath: "images/rpg_run.jpg",
                 choices: [{ text: "重來", next: "start" }],
                 isEnding: true
             },
             check: {
                 id: 'check',
                 text: "你小心翼翼地撥開蘆葦，天啊！竟然是一隻斑斕猛虎！牠正在瘋狂地跳躍吼叫，看起來興奮極了。你心想：",
-                // 圖片提示：彩色豐富、人像逼真
-                imgPrompt: "Hyper-realistic, colorful, detailed close-up. Through the reeds, a tiger is seen jumping and roaring joyfully. The farmer's hand holding a bow is visible in the foreground, trembling slightly. 8k resolution. NO text.",
-                imageData: null,
+                imagePath: "images/rpg_check.jpg",
                 choices: [
                     { text: "牠看見我了！牠是因為要吃我才這麼高興！", next: "misunderstanding" },
                     { text: "牠好像抓到了什麼獵物，正在慶祝。", next: "observe" }
@@ -487,7 +461,7 @@
             observe: {
                 id: 'observe',
                 text: "你冷靜觀察，發現老虎腳下有一隻死獐子。原來牠是因為有肉吃才高興。既然牠沒發現你，你決定...",
-                imageData: null,
+                imagePath: "images/rpg_observe.jpg",
                 choices: [
                     { text: "趁牠不備，射殺牠", next: "shoot" },
                     { text: "多一事不如少一事，悄悄溜走", next: "sneak_away" }
@@ -496,14 +470,14 @@
             sneak_away: {
                 id: 'sneak_away',
                 text: "【Normal Ending: 平安無事】你悄悄離開了。雖然沒發財，但也沒冒險。這就是普通人的一天。",
-                imageData: null,
+                imagePath: "images/rpg_sneak.jpg",
                 choices: [{ text: "重來", next: "start" }],
                 isEnding: true
             },
             misunderstanding: {
                 id: 'misunderstanding',
                 text: "恐懼佔據了你的心。你認定老虎的快樂是因為發現了你這頓「大餐」。為了活命，你必須先下手為強！你躲在草叢中，拉滿了弓...",
-                imageData: null,
+                imagePath: "images/rpg_prepare.jpg",
                 choices: [
                     { text: "瞄準牠的要害，等待時機", next: "shoot" }
                 ]
@@ -511,9 +485,7 @@
             shoot: {
                 id: 'shoot',
                 text: "老虎玩得正起勁（重娭），完全沒注意到危險。你抓住這個瞬間，『嗖』的一箭！箭矢準確地射穿了牠的腋下。老虎發出一聲雷鳴般的巨響，倒地不起。",
-                // 圖片提示：彩色豐富、人像逼真、東方臉孔
-                imgPrompt: "Hyper-realistic, colorful, detailed action shot. An arrow flying through the air, hitting the tiger under the armpit. The tiger looks shocked and is falling. The farmer stands up from the grass. 8k resolution. NO text.",
-                imageData: null,
+                imagePath: "images/rpg_shoot.jpg",
                 choices: [
                     { text: "走過去查看戰利品", next: "reveal" }
                 ]
@@ -521,9 +493,7 @@
             reveal: {
                 id: 'reveal',
                 text: "【True Ending: 意外之財】你走近一看，老虎枕著一隻死獐子斷氣了。原來牠是因為抓到獐子才高興，結果樂極生悲。你不僅得到了一張虎皮，還白撿了一隻獐子！真是福氣啊！",
-                // 圖片提示：彩色豐富、人像逼真、東方臉孔
-                imgPrompt: "Hyper-realistic, colorful, detailed scene. The farmer standing triumphantly over the dead tiger and the deer. Sunlight shines on him. He looks relieved and happy. 8k resolution. NO text.",
-                imageData: null,
+                imagePath: "images/rpg_reveal.jpg",
                 choices: [{ text: "重來", next: "start" }],
                 isEnding: true,
                 win: true
@@ -577,10 +547,7 @@
                     case 'analysis': renderAnalysis(container); break;
                     case 'chat': renderChat(container); break;
                     case 'quiz': renderQuiz(container); break;
-                    case 'story': 
-                        renderStory(container); 
-                        preloadStoryImages(); 
-                        break;
+                    case 'story': renderStory(container); break;
                 }
                 container.style.opacity = '1';
             }, 200);
@@ -610,12 +577,10 @@
         function renderReading(container) {
             let segmentsHtml = contentData.segments.map((seg, idx) => {
                 let displayHtml = seg.original;
-                // 智慧嵌入所有關鍵字
                 const sortedKeys = Object.keys(allKeywords).sort((a, b) => b.length - a.length);
                 const placeholders = {};
                 let counter = 0;
 
-                // 第一步：用佔位符替換關鍵字
                 sortedKeys.forEach(key => {
                     if (displayHtml.includes(key)) {
                         const ph = `___PH${counter}___`;
@@ -625,15 +590,19 @@
                     }
                 });
 
-                // 第二步：將佔位符還原為 HTML 標籤
                 Object.keys(placeholders).forEach(ph => {
                     const key = placeholders[ph];
                     displayHtml = displayHtml.split(ph).join(`<span class="interactive-word" onclick="showNote('${key}', ${idx}, this, event)">${key}</span>`);
                 });
 
-                let imageSection = seg.imageData 
-                    ? `<div class="mt-6 rounded-lg overflow-hidden shadow-lg animate-fade-in"><img src="${seg.imageData}" class="w-full h-auto rounded-lg shadow-md" alt="段落插圖"></div>`
-                    : `<div id="img-placeholder-${idx}" class="hidden mt-6 h-64 bg-gray-100 rounded-lg flex items-center justify-center text-gray-400 border-2 border-dashed border-gray-300"><i class="fas fa-image mr-2"></i>AI 擬真圖解區</div>`;
+                // 靜態圖片載入邏輯
+                let imageSection = `
+                    <div class="mt-6 rounded-lg overflow-hidden shadow-lg">
+                        <img src="${seg.imagePath}" 
+                             class="w-full h-auto rounded-lg shadow-md" 
+                             alt="段落插圖"
+                             onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'h-48 bg-gray-100 flex items-center justify-center text-gray-400 border-2 border-dashed border-gray-300\'><i class=\'fas fa-image mr-2\'></i>圖片準備中...請確認 images 資料夾</div>'">
+                    </div>`;
 
                 return `
                     <div class="group mb-12 relative pl-6 border-l-4 border-gray-200 hover:border-amber-500 transition-colors duration-300">
@@ -660,20 +629,6 @@
             }).join('');
 
             container.innerHTML = `
-                <div class="flex flex-col md:flex-row gap-6 mb-8 items-center bg-amber-50 p-4 rounded-xl border border-amber-100">
-                    <div class="flex-grow">
-                        <h3 class="font-bold text-amber-900 text-lg">AI 擬真圖解</h3>
-                        <p class="text-sm text-amber-700">還原老虎樂極生悲與農夫驚險獵虎的場景 (彩色豐富人像逼真風格)。</p>
-                    </div>
-                    <div class="flex gap-2">
-                        <button id="btn-gen-all" onclick="generateAllImages()" class="px-5 py-2 bg-amber-600 hover:bg-amber-700 text-white rounded-lg shadow transition flex items-center font-medium">
-                            <i class="fas fa-paint-brush mr-2"></i>一鍵生成全篇圖解
-                        </button>
-                        <button id="btn-download-all" onclick="downloadAllImages()" class="px-5 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg shadow transition flex items-center font-medium">
-                            <i class="fas fa-download mr-2"></i>下載所有圖片
-                        </button>
-                    </div>
-                </div>
                 <div class="max-w-3xl mx-auto">
                     ${segmentsHtml}
                 </div>
@@ -878,7 +833,7 @@
             msgContainer.appendChild(aiBubble);
             msgContainer.scrollTop = msgContainer.scrollHeight;
 
-            // Simulate AI response (Mock logic)
+            // Simulate AI response (Mock logic for static version)
             setTimeout(() => {
                 let reply = "";
                 if (currentPersona === 'liuji') {
@@ -892,7 +847,7 @@
                 aiBubble.innerHTML = reply;
                 chatHistory.push({ role: 'ai', content: reply });
                 msgContainer.scrollTop = msgContainer.scrollHeight;
-            }, 1500);
+            }, 1000);
         }
 
         function renderQuiz(container) {
@@ -969,14 +924,13 @@
             if(!window.currentStoryNode) window.currentStoryNode = 'start';
             const node = storyNodes[window.currentStoryNode];
 
-            let imageContent;
-            if (node.isLoading) {
-                 imageContent = `<div class="h-auto min-h-[256px] bg-gray-100 flex flex-col items-center justify-center relative overflow-hidden rounded-t-xl border-b border-gray-200"><div class="z-10 text-center animate-pulse"><i class="fas fa-palette text-4xl text-amber-400 mb-3"></i><p class="text-amber-600 font-bold">正在為您繪製場景...</p></div></div>`;
-            } else if (node.imageData) {
-                imageContent = `<div class="w-full overflow-hidden rounded-t-xl"><img src="${node.imageData}" class="w-full h-auto fade-in-image" alt="場景圖"></div>`;
-            } else {
-                 imageContent = `<div class="h-auto min-h-[256px] bg-gray-100 flex flex-col items-center justify-center relative overflow-hidden rounded-t-xl border-b border-gray-200"><div class="z-10 text-center"><i class="fas fa-image text-4xl text-gray-300 mb-3"></i><p class="text-gray-500 text-sm">場景圖準備中 (彩色擬真)...</p></div></div>`;
-            }
+            // 靜態載入邏輯
+            let imageContent = `<div class="w-full overflow-hidden rounded-t-xl">
+                <img src="${node.imagePath}" 
+                     class="w-full h-auto fade-in-image" 
+                     alt="場景圖"
+                     onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'h-48 bg-gray-100 flex items-center justify-center text-gray-400 border-2 border-dashed border-gray-300\'><i class=\'fas fa-image mr-2\'></i>圖片準備中...請確認 images 資料夾</div>'">
+            </div>`;
 
             container.innerHTML = `<div class="max-w-2xl mx-auto bg-white rounded-xl shadow-xl overflow-hidden border border-amber-100">${imageContent}<div class="p-8"><div class="flex items-center mb-4 text-amber-800 text-sm font-bold uppercase tracking-widest"><i class="fas fa-scroll mr-2"></i> 抉擇時刻</div><p class="text-xl leading-relaxed text-gray-800 mb-8 font-serif">${node.text}</p>${node.isEnding ? (node.win ? `<div class="text-center mb-6 text-green-600 font-bold text-2xl p-4 bg-green-50 rounded-lg border border-green-200"><i class="fas fa-trophy mr-2"></i>達成結局</div>` : `<div class="text-center mb-6 text-gray-600 font-bold text-2xl p-4 bg-gray-50 rounded-lg border border-gray-200">故事結束</div>`) : ''}<div class="grid gap-4">${node.choices.map(c => `<button onclick="nextStoryNode('${c.next}')" class="story-choice w-full py-4 px-6 bg-white hover:bg-amber-50 border-2 border-amber-200 hover:border-amber-400 rounded-xl text-amber-900 font-bold text-lg transition duration-200 flex items-center justify-between group"><span>${c.text}</span><i class="fas fa-chevron-right text-amber-300 group-hover:text-amber-600 transition"></i></button>`).join('')}</div></div></div>`;
             if(node.win) { try { confetti({ particleCount: 150, spread: 70, origin: { y: 0.6 } }); } catch (e) { console.log("Confetti not loaded"); } }
@@ -985,144 +939,6 @@
         function nextStoryNode(nodeId) {
             window.currentStoryNode = nodeId;
             renderStory(document.getElementById('content-display'));
-        }
-        
-        async function preloadStoryImages() {
-            if (hasPreloadedStory) return;
-            hasPreloadedStory = true;
-            await generateStoryImage('start');
-            const allIds = Object.keys(storyNodes).filter(id => id !== 'start');
-            for (const id of allIds) {
-                await new Promise(r => setTimeout(r, 500));
-                generateStoryImage(id).catch(e => console.error(`Background gen failed for ${id}`, e));
-            }
-        }
-
-        async function generateStoryImage(nodeId) {
-            const node = storyNodes[nodeId];
-            if (node.imageData || node.isLoading) return; 
-            
-            if (!node.imgPrompt) {
-                node.imgPrompt = "Hyper-realistic, colorful, detailed cinematic shot. Ancient Chinese setting. 8k resolution. NO text.";
-            }
-
-            node.isLoading = true;
-            if (window.currentStoryNode === nodeId) { const container = document.getElementById('content-display'); if(container) renderStory(container); }
-            try {
-                // 呼叫 Gemini Imagen 4.0 API
-                const url = `https://generativelanguage.googleapis.com/v1beta/models/imagen-4.0-generate-001:predict?key=${apiKey}`;
-                const response = await fetch(url, { 
-                    method: 'POST', 
-                    headers: { 'Content-Type': 'application/json' }, 
-                    body: JSON.stringify({ 
-                        instances: [{ prompt: node.imgPrompt }], 
-                        parameters: { sampleCount: 1 } 
-                    }) 
-                });
-                
-                if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-                
-                const data = await response.json();
-                if (data.predictions && data.predictions[0].bytesBase64Encoded) { 
-                    node.imageData = `data:image/png;base64,${data.predictions[0].bytesBase64Encoded}`; 
-                } else { 
-                    throw new Error("No image data returned"); 
-                }
-            } catch (err) { 
-                console.error(`Story image failed for ${nodeId}:`, err); 
-                showError("圖片生成失敗，可能是 API 限制或網路問題。");
-            } finally { 
-                node.isLoading = false; 
-                if (window.currentStoryNode === nodeId) { 
-                    const container = document.getElementById('content-display'); 
-                    if(container) renderStory(container); 
-                } 
-            }
-        }
-
-        async function generateAllImages() {
-            if (isGeneratingImage) return;
-            const btn = document.getElementById('btn-gen-all');
-            btn.disabled = true;
-            btn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>書畫繪製中...';
-            isGeneratingImage = true;
-            contentData.segments.forEach((_, i) => { document.getElementById(`img-placeholder-${i}`)?.classList.remove('hidden'); });
-            
-            try {
-                for (let i = 0; i < contentData.segments.length; i++) {
-                    if (contentData.segments[i].imageData) continue;
-                    
-                    const prompt = contentData.segments[i].imagePrompt;
-                    // 呼叫 Gemini Imagen 4.0 API
-                    const url = `https://generativelanguage.googleapis.com/v1beta/models/imagen-4.0-generate-001:predict?key=${apiKey}`;
-                    const response = await fetch(url, { 
-                        method: 'POST', 
-                        headers: { 'Content-Type': 'application/json' }, 
-                        body: JSON.stringify({ 
-                            instances: [{ prompt: prompt }], 
-                            parameters: { sampleCount: 1 } 
-                        }) 
-                    });
-
-                    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-
-                    const data = await response.json();
-                    if (data.predictions && data.predictions[0].bytesBase64Encoded) {
-                        const b64 = `data:image/png;base64,${data.predictions[0].bytesBase64Encoded}`;
-                        contentData.segments[i].imageData = b64;
-                        const ph = document.getElementById(`img-placeholder-${i}`);
-                        if (ph) { 
-                            const imgDiv = document.createElement('div'); 
-                            imgDiv.className = "mt-6 rounded-lg overflow-hidden shadow-lg animate-fade-in"; 
-                            imgDiv.innerHTML = `<img src="${b64}" class="w-full h-auto rounded-lg shadow-md" alt="段落插圖">`; 
-                            ph.replaceWith(imgDiv); 
-                        }
-                    }
-                }
-            } catch (err) { 
-                showError("圖片生成過程中遇到了一些問題，請稍後再試。"); 
-                console.error(err); 
-            } finally { 
-                isGeneratingImage = false; 
-                btn.disabled = false; 
-                btn.innerHTML = '<i class="fas fa-check mr-2"></i>繪製完成'; 
-            }
-        }
-
-        // Download function
-        async function downloadAllImages() {
-            const zip = new JSZip();
-            let count = 0;
-            const title = contentData.metadata.title.replace(/[^\w\u4e00-\u9fa5]/g, "_") || "download";
-            const folder = zip.folder("images");
-
-            // Reading segments
-            contentData.segments.forEach((seg, index) => {
-                if (seg.imageData) {
-                    const base64Data = seg.imageData.replace(/^data:image\/(png|jpg|jpeg);base64,/, "");
-                    // Save as .jpg
-                    folder.file(`reading_segment_${index + 1}.jpg`, base64Data, {base64: true});
-                    count++;
-                }
-            });
-
-            // RPG nodes
-            Object.entries(storyNodes).forEach(([nodeId, node]) => {
-                if (node.imageData) {
-                    const base64Data = node.imageData.replace(/^data:image\/(png|jpg|jpeg);base64,/, "");
-                    // Save as .jpg
-                    folder.file(`rpg_${nodeId}.jpg`, base64Data, {base64: true});
-                    count++;
-                }
-            });
-
-            if (count === 0) {
-                showError("沒有可下載的圖片，請先生成圖片。(演示模式下無圖片)");
-                return;
-            }
-
-            const content = await zip.generateAsync({type: "blob"});
-            saveAs(content, `${title}_images.zip`);
         }
 
         function checkAnswer(idx, val, ans) {
@@ -1229,7 +1045,6 @@
             let left = rect.left + scrollLeft;
             let top = rect.bottom + scrollTop + 5; 
             
-            // 防止彈出視窗超出螢幕右側
             if (left + 300 > document.body.clientWidth) { 
                 left = document.body.clientWidth - 310; 
             }
@@ -1263,7 +1078,6 @@
             requestAnimationFrame(() => { toast.classList.remove('translate-y-10', 'opacity-0'); });
             setTimeout(() => { toast.classList.add('translate-y-10', 'opacity-0'); setTimeout(() => toast.classList.add('hidden'), 300); }, 4000);
         }
-
     </script>
 </body>
 </html>
